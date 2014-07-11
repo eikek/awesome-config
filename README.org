@@ -1,0 +1,20 @@
+* My Awesome Config
+
+This is the default config of [[http://awesome.naquadah.org/][awesome]], with only minor changes and
+split over separate files. Most additions are from the awesome wiki
+(like the volume widget or the =aweror= function).
+
+** programs used
+
+- alsa-utils
+- compton
+- i3lock
+- xfce4-terminal
+
+** Changes to default
+
+- removes mouse menu
+- adds org agenda "tooltip". Based on [[http://tsdh.wordpress.com/2009/03/04/integrating-emacs-org-mode-with-the-awesome-window-manager/][this]].
+- adds volume widget, based on [[https://github.com/esn89/volumetextwidget/blob/master/textvolume.lua][this]].
+- adds "run or raise", found [[http://awesome.naquadah.org/wiki/Run_or_raise][here]].
+- adds other simple vicious widgets (cpu and net) (see [[http://awesome.naquadah.org/wiki/Vicious][here]])
