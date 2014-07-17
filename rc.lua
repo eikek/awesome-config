@@ -1,8 +1,7 @@
-
 awful = require("awful")
+naughty = require("naughty")
 require("awful.autofocus")
 require("beautiful")
-require("naughty")
 require("gears")
 
 config = {}
