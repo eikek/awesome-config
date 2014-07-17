@@ -50,7 +50,7 @@ dofile(rcfile("signals.lua"))
 -- load files by hostname
 local hostnames = { "nyx", "shang", "ithaka" }
 for _, hname in pairs(hostnames) do
-   local hfile = "rc.d/".. hname ..".lua"
+   local hfile = rcfile(hname ..".lua")
    if (config.hostname == hname and ek.file_exists(hfile)) then
       dofile(hfile)
    end
