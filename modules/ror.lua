@@ -13,6 +13,7 @@
 
 table5={
    ["e"]={"zsh -i -c '/usr/bin/emacs'", "Emacs"}, 
+   ["s"]={"keepassx", "Keepassx"},
    ["b"]={"firefox","Firefox"}, 
    ["c"]={"chromium", "Chromium"},
    ["t"]={"xfce4-terminal --title htop-terminal -e htop", "htop-terminal", "name"}
