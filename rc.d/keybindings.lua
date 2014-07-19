@@ -28,10 +28,8 @@ config.globalkeys = awful.util.table.join(
           end
     end),
     -- volume keys
-    awful.key({ }, "XF86AudioRaiseVolume", function ()
-          awful.util.spawn("amixer set Master 5%+") end),
-    awful.key({ }, "XF86AudioLowerVolume", function ()
-          awful.util.spawn("amixer set Master 5%-") end),
+    awful.key({ }, "XF86AudioRaiseVolume", ek.volume_up),
+    awful.key({ }, "XF86AudioLowerVolume", ek.volume_down),
     awful.key({ }, "XF86AudioMute", function ()
           awful.util.spawn("amixer sset Master toggle") end),
 

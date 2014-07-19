@@ -4,6 +4,7 @@ local wibox = require("wibox")
 local vicious = require("vicious")
 local volume_widget = require("volume_widget")
 local menubar = require("menubar")
+local org = require("org-agenda")
 
 -- Set the terminal for applications that require it
 menubar.utils.terminal = config.terminal
@@ -65,7 +66,12 @@ widgets.add({
       name = "volume",
       position = "right",
       create = ek.memoize(function(s, this)
-            return volume_widget.create()
+            local w = volume_widget.create()
+            w:buttons(awful.util.table.join(
+                         awful.button({}, 4, ek.volume_up),
+                         awful.button({}, 5, ek.volume_down)
+            ))
+            return w
       end)
 })
 
@@ -74,7 +80,10 @@ widgets.add({
       name = "clock",
       position = "right",
       create = ek.memoize(function(s, this)
-            return awful.widget.textclock()
+            local w = awful.widget.textclock()
+            w:connect_signal("mouse::enter", org.show_agenda)
+            w:connect_signal("mouse::leave", org.dispose_agenda)
+            return w
       end)
 })
 

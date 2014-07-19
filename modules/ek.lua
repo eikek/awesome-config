@@ -74,4 +74,12 @@ function ek.memoize(f)
    end
 end
 
+function ek.volume_up() 
+   awful.util.spawn("amixer set Master 5%+")
+end
+
+function ek.volume_down()
+   awful.util.spawn("amixer set Master 5%-")
+end
+
 return ek

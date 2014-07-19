@@ -1,5 +1,4 @@
 local beautiful = require("beautiful")
-local org = require("org-agenda")
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -81,7 +80,3 @@ client.connect_signal(
       c.border_color = beautiful.border_normal 
       c.opacity = 0.85
 end)
-
-local textclock = config.widgets["clock"].widget[1]
-textclock:connect_signal("mouse::enter", org.show_agenda)
-textclock:connect_signal("mouse::leave", org.dispose_agenda)
