@@ -4,4 +4,4 @@ local ek = require("ek")
 
 awful.util.spawn("setxkbmap -layout de")
 
-ek.runonce("compton -bf -D 5")
+ek.runonce("compton -b")
