@@ -38,7 +38,7 @@ end
 
 
 -- Cpu widget
-widgets.add({ 
+widgets.add({
       name = "cpu",
       position = "right",
       create = ek.memoize(function(s, this)
@@ -54,10 +54,12 @@ widgets.add({
       position = "right",
       create = ek.memoize(function(s, this)
             local ifname = ek.detect_if()
-            local netwidget = wibox.widget.textbox()
-            local text = 'Net: <span color="#CC9393">${'..  ifname ..' down_kb}</span> <span color="#7F9F7F">${'.. ifname ..' up_kb}</span> | '
-            vicious.register(netwidget, vicious.widgets.net, text, 3)
-            return netwidget
+            if ifname then
+               local netwidget = wibox.widget.textbox()
+               local text = 'Net: <span color="#CC9393">${'.. ifname ..' down_kb}</span> <span color="#7F9F7F">${'.. ifname ..' up_kb}</span> | '
+               vicious.register(netwidget, vicious.widgets.net, text, 3)
+               return netwidget
+            else return nil end
       end)
 })
 
@@ -109,7 +111,7 @@ widgets.add({
       name = "logo",
       position = "left",
       create = ek.memoize(function(s, this)
-         return awful.widget.launcher({ 
+         return awful.widget.launcher({
                image = beautiful.awesome_icon,
                menu = awful.menu()
          })
@@ -128,7 +130,7 @@ widgets.add({
          awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
          awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
       ),
-      create = function(s, this) 
+      create = function(s, this)
          return awful.widget.taglist(s, awful.widget.taglist.filter.all, this.buttons)
       end
 })
@@ -181,9 +183,9 @@ widgets.add({
                awful.client.focus.byidx(-1)
                if client.focus then client.focus:raise() end
       end)),
-      create = function(s, this) 
-         return awful.widget.tasklist(s, 
-                                      awful.widget.tasklist.filter.currenttags, 
+      create = function(s, this)
+         return awful.widget.tasklist(s,
+                                      awful.widget.tasklist.filter.currenttags,
                                       this.buttons)
       end
 })
@@ -205,7 +207,7 @@ for s=1,screen.count() do
          if widget then
             print("Add widget " .. maker.name)
             positions[pos]:add(widget)
-            -- add to config 
+            -- add to config
             if not config.widgets[maker.name] then
                config.widgets[maker.name] = {}
             end
