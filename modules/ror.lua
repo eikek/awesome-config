@@ -12,7 +12,7 @@
 -- for browsers, or the file name for emacs).
 
 table5={
-   ["e"]={"zsh -i -c '/usr/bin/emacs'", "Emacs"},
+   ["e"]={"zsh -i -c 'emacs'", "Emacs"},
    ["s"]={"keepassx", "Keepassx"},
    ["b"]={"firefox","Firefox"},
    ["c"]={"chromium", "Chromium"},
